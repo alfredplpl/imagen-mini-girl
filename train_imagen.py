@@ -18,7 +18,7 @@ EMBED_PATH = os.path.join(os.environ["DS_PATH"], "text_embedding_1024.pickle")
 
 SIZE = 64
 MAX_BATCH_SIZE = 32
-INTERVAL = 400*3
+INTERVAL = 400*4
 
 imagen = ElucidatedImagenConfig(
     unets = [
@@ -61,7 +61,7 @@ class CustomDataset(Dataset):
             transforms.ToTensor()
             ])
 
-        pth = torch.load(EMBED_PATH)
+        pth = torch.load(embed_path)
         self.text_embeds = pth["text_embeds"]
         self.text_masks = pth["text_masks"]
 
@@ -89,4 +89,3 @@ with tqdm(initial=0, total=LOOP_MAX) as pbar:
             filename = f'model-{i}.pt'
             trainer.save(os.path.join(STORE_DIR, filename))
         pbar.update(1)
-
