@@ -33,6 +33,7 @@ def compile(model_json):
     return model
 
 if __name__ == "__main__":
+    MAX_WORKERS=os.cpu_count()
     NUM_PROMPTS=2**16
     prompts=[]
 
@@ -44,13 +45,13 @@ if __name__ == "__main__":
     model=compile(model_json)
 
     with tqdm(total=NUM_PROMPTS) as pbar:
-        with ProcessPoolExecutor(max_workers=os.cpu_count()*3) as executor:
+        with ProcessPoolExecutor(max_workers=MAX_WORKERS) as executor:
             futures = []
-            for i in range(os.cpu_count()*3):
+            for i in range(MAX_WORKERS):
                 futures.append(executor.submit(generate_girl_prompt, model, tokenizer))
 
             while(True):
-                for i in range(os.cpu_count()*3):
+                for i in range(MAX_WORKERS):
                     if(futures[i].done()):
                         prompt=futures[i].result()
                         if(prompt is not None):
@@ -62,5 +63,5 @@ if __name__ == "__main__":
                     break
 
     prompts=prompts[:NUM_PROMPTS]
-    with open("prompts_1024.pickle", "wb") as f:
+    with open(f"prompts_{NUM_PROMPTS}.pickle", "wb") as f:
         pickle.dump(prompts,f,pickle.HIGHEST_PROTOCOL)
