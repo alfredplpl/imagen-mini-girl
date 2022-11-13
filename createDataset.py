@@ -5,7 +5,7 @@ import pickle
 
 BATCH_SIZE=8
 
-with open("prompts.pickle","rb") as f:
+with open("prompts_1024.pickle", "rb") as f:
     prompts=pickle.load(f)
 
 euler_scheduler = EulerDiscreteScheduler.from_config(

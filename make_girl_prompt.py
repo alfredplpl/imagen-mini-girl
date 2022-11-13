@@ -33,7 +33,7 @@ def compile(model_json):
     return model
 
 if __name__ == "__main__":
-    NUM_PROMPTS=2**10
+    NUM_PROMPTS=2**16
     prompts=[]
 
     tokenizer = CLIPTokenizer.from_pretrained("openai/clip-vit-large-patch14")
@@ -62,5 +62,5 @@ if __name__ == "__main__":
                     break
 
     prompts=prompts[:NUM_PROMPTS]
-    with open("prompts.pickle","wb") as f:
+    with open("prompts_1024.pickle", "wb") as f:
         pickle.dump(prompts,f,pickle.HIGHEST_PROTOCOL)
