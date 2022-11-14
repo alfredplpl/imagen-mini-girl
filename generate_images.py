@@ -23,7 +23,7 @@ pipe = StableDiffusionPipeline.from_pretrained(
     scheduler=euler_scheduler,
 ).to(f"cuda:{CUDA}")
 
-for seed in range(0, 1024):
+for seed in range(0, 64):
     out_dir=os.path.join(os.environ["DS_PATH"], f"seed_{seed:09d}")
     if(not os.path.exists(out_dir)):
         os.mkdir(out_dir)

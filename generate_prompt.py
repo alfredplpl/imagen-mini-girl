@@ -10,6 +10,11 @@ from transformers import CLIPTokenizer
 
 LIMIT_CLIP_TEXT_ENC=75
 
+girl_dictionary = ["girl", "woman", "female", "princess",
+              "actless", "maid", "gal", "maiden", "waifu",
+              "wife", "loli", "kawaii"]
+boy_dictionary = ["boy", "man", "male", "guy",
+                  "dude", "geezer", "chap", "fellow","bloke"]
 def generate_girl_prompt(model,tokenizer):
     prompt=model.make_sentence()
 
@@ -21,8 +26,8 @@ def generate_girl_prompt(model,tokenizer):
     if (len(tokens) > LIMIT_CLIP_TEXT_ENC):
         return None
 
-    if ("girl" in prompt):
-        if (all([not x in prompt for x in ("boy", "man", "male")])):
+    if (any([x in prompt for x in girl_dictionary])):
+        if (all([not x in prompt for x in boy_dictionary])):
             return prompt
 
     return None
@@ -34,7 +39,7 @@ def compile(model_json):
 
 if __name__ == "__main__":
     MAX_WORKERS=os.cpu_count()
-    NUM_PROMPTS=2**16
+    NUM_PROMPTS=2**13
     prompts=[]
 
     tokenizer = CLIPTokenizer.from_pretrained("openai/clip-vit-large-patch14")

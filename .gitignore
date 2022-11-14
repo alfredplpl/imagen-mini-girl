@@ -1,4 +1,7 @@
 .idea/
+models/prompt_gen_large.json
+models/*.pt
+prompts/*.pickle
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

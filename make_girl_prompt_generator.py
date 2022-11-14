@@ -10,12 +10,16 @@ with io.BytesIO(response.content) as inmemory_file:
 
 
 prompts=[]
+#girl_dictionary=["girl", "woman", "female", "princess",
+#            "actless", "maid", "gal", "maiden", "waifu",
+#            "wife", "loli", "kawaii"]
+girl_dictionary=["girl"]
+
 for idx,row in df.iterrows():
-    if("girl" in row["prompt"]):
+    if(any([x in row["prompt"] for x in girl_dictionary])):
         prompts.append(row["prompt"])
 
-# check max length of words
-print(max([max([len(x) for x in prompt.split(" ")]) for prompt in prompts]))
+print(len(prompts))
 
 text_model = markovify.Text(prompts)
 
