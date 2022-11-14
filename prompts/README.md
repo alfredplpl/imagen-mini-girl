@@ -1,7 +1,7 @@
 # Large Prompts
 ## extract_prompts_116067.pickle
-[extracted prompts](https://1drv.ms/u/s!ApxVlgxlqLRliLop2hrmNvL4f_bHUw?e=Zx8sK7)
-These scripts are a part of DiffusionDB. Thanks.
+[Extracted prompts.](https://1drv.ms/u/s!ApxVlgxlqLRliLop2hrmNvL4f_bHUw?e=Zx8sK7)
+These prompts are a part of DiffusionDB. Thanks.
 ```bibtex
 @article{wangDiffusionDBLargescalePrompt2022,
   title = {{{DiffusionDB}}: {{A}} Large-Scale Prompt Gallery Dataset for Text-to-Image Generative Models},
