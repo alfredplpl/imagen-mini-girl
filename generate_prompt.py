@@ -39,7 +39,7 @@ def compile(model_json):
 
 if __name__ == "__main__":
     MAX_WORKERS=os.cpu_count()
-    NUM_PROMPTS=2**13
+    NUM_PROMPTS=2**12+2**11
     prompts=[]
 
     tokenizer = CLIPTokenizer.from_pretrained("openai/clip-vit-large-patch14")
