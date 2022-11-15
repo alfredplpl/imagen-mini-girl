@@ -2,11 +2,18 @@ import os
 from diffusers import StableDiffusionPipeline,EulerDiscreteScheduler
 import torch
 import pickle
+import argparse
 
-BATCH_SIZE=8
-CUDA=0
+parser = argparse.ArgumentParser()
+parser.add_argument("batch_size", required=True, type=int, help="")
+parser.add_argument("cuda", required=True, type=int, help="")
+parser.add_argument("prompt_file", required=True, type=int, help="")
+parser.add_argument("dataset_path", required=True, type=int, help="")
+args = parser.parse_args()
 
-with open("prompts/extract_prompts_116067.pickle", "rb") as f:
+BATCH_SIZE=args.batch_size
+
+with open(args.prompt_file, "rb") as f:
     prompts=pickle.load(f)
 
 euler_scheduler = EulerDiscreteScheduler.from_config(
@@ -21,10 +28,10 @@ pipe = StableDiffusionPipeline.from_pretrained(
     revision="fp16",
     use_auth_token=os.environ["HUG_KEY"],
     scheduler=euler_scheduler,
-).to(f"cuda:{CUDA}")
+).to(f"cuda:{args.cuda}")
 
 for seed in range(0, 64):
-    out_dir=os.path.join(os.environ["DS_PATH"], f"seed_{seed:09d}")
+    out_dir=os.path.join(args.dataset_path, f"seed_{seed:09d}")
     if(not os.path.exists(out_dir)):
         os.mkdir(out_dir)
     for i in range(0,len(prompts),BATCH_SIZE):
