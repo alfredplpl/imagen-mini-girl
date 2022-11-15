@@ -5,10 +5,10 @@ import pickle
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("batch_size", required=True, type=int, help="")
-parser.add_argument("cuda", required=True, type=int, help="")
-parser.add_argument("prompt_file", required=True, type=int, help="")
-parser.add_argument("dataset_path", required=True, type=int, help="")
+parser.add_argument("batch_size", type=int, help="")
+parser.add_argument("cuda", type=int, help="")
+parser.add_argument("prompt_file", type=str, help="")
+parser.add_argument("dataset_path", type=str, help="")
 args = parser.parse_args()
 
 BATCH_SIZE=args.batch_size

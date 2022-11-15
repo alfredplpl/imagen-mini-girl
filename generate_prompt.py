@@ -40,7 +40,7 @@ def compile(model_json):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("number_of_prompts", required=True, type=int, help="")
+    parser.add_argument("number_of_prompts", type=int, help="")
     args = parser.parse_args()
     MAX_WORKERS=os.cpu_count()
     NUM_PROMPTS=args.number_of_prompts
