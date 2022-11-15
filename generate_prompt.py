@@ -1,12 +1,13 @@
 import os
 import pickle
-import time
 
 import markovify
 from concurrent.futures  import ProcessPoolExecutor
 from tqdm import tqdm
 
 from transformers import CLIPTokenizer
+
+import argparse
 
 LIMIT_CLIP_TEXT_ENC=75
 
@@ -38,8 +39,11 @@ def compile(model_json):
     return model
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("number_of_prompts", required=True, type=int, help="")
+    args = parser.parse_args()
     MAX_WORKERS=os.cpu_count()
-    NUM_PROMPTS=2**13
+    NUM_PROMPTS=args.number_of_prompts
     prompts=[]
 
     tokenizer = CLIPTokenizer.from_pretrained("openai/clip-vit-large-patch14")
