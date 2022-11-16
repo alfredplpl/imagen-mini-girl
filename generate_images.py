@@ -7,6 +7,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("batch_size", type=int, help="")
 parser.add_argument("cuda", type=int, help="")
+parser.add_argument("seed_start", type=int, help="")
 parser.add_argument("prompt_file", type=str, help="")
 parser.add_argument("dataset_path", type=str, help="")
 args = parser.parse_args()
@@ -30,7 +31,7 @@ pipe = StableDiffusionPipeline.from_pretrained(
     scheduler=euler_scheduler,
 ).to(f"cuda:{args.cuda}")
 
-for seed in range(0, 64):
+for seed in range(args.seed_start, args.seed_start+64):
     out_dir=os.path.join(args.dataset_path, f"seed_{seed:09d}")
     if(not os.path.exists(out_dir)):
         os.mkdir(out_dir)
