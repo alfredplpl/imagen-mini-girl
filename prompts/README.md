@@ -1,6 +1,12 @@
 # Large Prompts
+## prompts_2**(16+n).pickle
+These prompts files are not suitable for Github. Therefore, I provide these prompts by OneDrive.
+Please download them manually.
+
+[prompts_131072.pickle](https://1drv.ms/u/s!ApxVlgxlqLRliLo0OwEwNIAtX2VRIw?e=mZxJX4)
+
 ## extract_prompts_116067.pickle
-You can get this prompts by running extract_girl_prompt.py easily. These prompts are a part of DiffusionDB. Thanks.
+You can get this prompts file by running extract_girl_prompt.py easily. These prompts are a part of DiffusionDB. Thanks.
 ```bibtex
 @article{wangDiffusionDBLargescalePrompt2022,
   title = {{{DiffusionDB}}: {{A}} Large-Scale Prompt Gallery Dataset for Text-to-Image Generative Models},
