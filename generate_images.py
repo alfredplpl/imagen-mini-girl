@@ -39,7 +39,7 @@ for seed in range(0, 64):
         if(os.path.exists(out_path)):
             continue
         [print(x) for x in prompts[i:i+BATCH_SIZE]]
-        images = pipe(prompts[i:i+BATCH_SIZE], num_inference_steps=50,seed=seed).images
+        images = pipe(prompts[i:i+BATCH_SIZE], num_inference_steps=30,seed=seed).images
         for j,image in enumerate(images):
             out_path=os.path.join(out_dir, f"{i+j:09d}.png")
             if (not os.path.exists(out_path)):
@@ -50,7 +50,7 @@ for seed in range(0, 64):
         out_path = os.path.join(out_dir, f"{i:09d}.png")
         if(os.path.exists(out_path)):
             continue
-        images = pipe(prompts[i:], num_inference_steps=50,seed=seed).images
+        images = pipe(prompts[i:], num_inference_steps=30,seed=seed).images
         for j,image in enumerate(images):
             out_path=os.path.join(out_dir, f"{i+j:09d}.png")
             if (not os.path.exists(out_path)):
