@@ -4,6 +4,7 @@ These prompts files are not suitable for Github. Therefore, I provide these prom
 Please download them manually.
 
 [prompts_131072.pickle](https://1drv.ms/u/s!ApxVlgxlqLRliLo0OwEwNIAtX2VRIw?e=mZxJX4)
+[prompts_262144.pickle](https://1drv.ms/u/s!ApxVlgxlqLRliLo9VIw44K2GURxBZQ?e=7go28Y)
 
 ## extract_prompts_116067.pickle
 You can get this prompts file by running extract_girl_prompt.py easily. These prompts are a part of DiffusionDB. Thanks.
