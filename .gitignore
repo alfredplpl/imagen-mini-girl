@@ -3,6 +3,13 @@ models/prompt_gen_large.json
 models/*.pt
 prompts/extract_prompts_116067.pickle
 
+# ???
+lesser_cool_japan_diffusion/
+generate_lcjd_images.py
+generate_lcjd_prompts.py
+make_lcjd_prompt_generator.py
+models/lcjd_prompt_gen.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
