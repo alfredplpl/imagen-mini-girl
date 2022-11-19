@@ -12,6 +12,7 @@ generate_lcjd_images.py
 generate_lcjd_prompts.py
 make_lcjd_prompt_generator.py
 models/lcjd_prompt_gen.json
+lcdj_prompts/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
