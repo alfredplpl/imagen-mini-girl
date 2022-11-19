@@ -1,7 +1,10 @@
+# original files
 .idea/
 models/prompt_gen_large.json
 models/*.pt
 prompts/extract_prompts_116067.pickle
+prompts/prompts_131072.pickle
+prompts/prompts_262144.pickle
 
 # ???
 lesser_cool_japan_diffusion/
